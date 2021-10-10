@@ -23,6 +23,11 @@
             <input type="password" id="password" name="password" required>
             <error-output class="password-error" for="password"></error-output>
         </div>
+        <div>
+            <label for="email">email input type: </label>
+            <input type="email" id="email" name="email">
+            <error-output class="email-error" for="email"></error-output>
+        </div>
         
         <div>
             <button>Submit</button>
@@ -47,6 +52,16 @@
                 passwordError.textContent = "";
             else passwordError.textContent = "password is Incorrect"
         });
+
+        const email = document.querySelector('#email');
+        const emailError = document.querySelector('.email-error');
+        email.oninput = function() {
+            let emailRegex = RegExp("^[0-9A-Za-z]+(([._+-]?)[0-9A-Za-z]+)*" +
+                "@[0-9A-Za-z]+.[a-z]{2,4}.([a-z]{2,3})*$");
+            if (emailRegex.test(email.value))
+                emailError.textContent = "";
+            else emailError.textContent = "Email is Incorrect"
+        };
 
         
     </script>
