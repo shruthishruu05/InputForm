@@ -37,6 +37,11 @@
             <input type="text" id="number" name="number">
             <error-output class="number-error" for="number"></error-output>
         </div>
+        <div>
+            <label for="tel">tel input type</label>
+            <input type="tel" id="tel" name="tel">
+            <error-output class="telephone-error" for="tel"></error-output>
+        </div>
         
         <div>
             <button>Submit</button>
@@ -78,6 +83,14 @@
             if (numberRegex.test(number.value)) 
                 numberError.textContent = "";
             else numberError.textContent = "Mobile number is Incorrect";
+        });
+        const tel = document.querySelector('#tel');
+        const telError = document.querySelector('.telephone-error');
+        tel.addEventListener('input', function() {
+            let numberRegex = RegExp('^[0][1-9][0][0-9]{8}$');
+            if (numberRegex.test(tel.value)) 
+            telError.textContent = "";
+            else telError.textContent = "Telephone number is Incorrect";
         });
 
         
