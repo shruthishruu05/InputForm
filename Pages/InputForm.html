@@ -18,6 +18,11 @@
             <input type="text" id="text" name="text" required>
             <error-output class="text-error" for="text"></error-output>
         </div>
+        <div>
+            <label for="password">password input type: </label>
+            <input type="password" id="password" name="password" required>
+            <error-output class="password-error" for="password"></error-output>
+        </div>
         
         <div>
             <button>Submit</button>
@@ -32,6 +37,15 @@
             if (nameRegex.test(text.value))
                 textError.textContent = "";
             else textError.textContent = "Name is Incorrect";
+
+        });
+        const password = document.querySelector('#password');
+        const passwordError = document.querySelector('.password-error');
+        password.addEventListener('input', function() {
+            let passwordRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()]).{8,}$');
+            if (passwordRegex.test(password.value))
+                passwordError.textContent = "";
+            else passwordError.textContent = "password is Incorrect"
         });
 
         
