@@ -51,6 +51,11 @@
             <input type="datetime-local" id="startDate" name="startDate">
             <span class="validity"></span>
         </div>
+        <div>
+            <label for="salary">Choose your salary: </label>
+            <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
+            <output class="salary-output" for="salary">400000</output>
+        </div>
         
         <div>
             <button>Submit</button>
@@ -100,6 +105,12 @@
             if (numberRegex.test(tel.value)) 
             telError.textContent = "";
             else telError.textContent = "Telephone number is Incorrect";
+        });
+        const salary = document.querySelector('#salary');
+        const output = document.querySelector('.salary-output');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function() {
+            output.textContent = salary.value;
         });
 
         
