@@ -32,6 +32,11 @@
             <label for="url">url input type: </label>
             <input type="url" id="url" name="url">
         </div>
+        <div>
+            <label for=number>number input type: </label>
+            <input type="text" id="number" name="number">
+            <error-output class="number-error" for="number"></error-output>
+        </div>
         
         <div>
             <button>Submit</button>
@@ -66,6 +71,14 @@
                 emailError.textContent = "";
             else emailError.textContent = "Email is Incorrect"
         };
+        const number = document.querySelector('#number');
+        const numberError = document.querySelector('.number-error');
+        number.addEventListener('input', function() {
+            let numberRegex = RegExp('^[0-9]{2}[-][6-9][0-9]{9}$');
+            if (numberRegex.test(number.value)) 
+                numberError.textContent = "";
+            else numberError.textContent = "Mobile number is Incorrect";
+        });
 
         
     </script>
